@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unidad 5 interactiva de Rectas en el plano para Álgebra y Geometría I, organizada para acompañar el TP 5 del recursado 2026.">
+  <meta name="theme-color" content="#173d7a">
+  <title>Unidad 5 · Rectas en el plano</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        packages: {'[+]': ['ams']},
+        macros: {R: '\\mathbb{R}', dist: '\\operatorname{dist}', sen: '\\operatorname{sen}'}
+      },
+      svg: {fontCache: 'global'},
+      options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']}
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="topbar">
+    <button class="icon-button menu-button" id="menuButton" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">L</span>
+      <div>
+        <p class="eyebrow">Álgebra y Geometría I · Ingeniería en Petróleo</p>
+        <h1>Unidad 5 · Rectas en el plano</h1>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="button ghost compact" id="printButton" type="button">Imprimir recorrido</button>
+      <button class="button ghost compact" id="resetProgressButton" type="button">Reiniciar progreso</button>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Navegación de la unidad">
+      <div class="progress-card">
+        <div class="progress-label"><span>Progreso</span><strong id="progressText">0%</strong></div>
+        <div class="progress-track" aria-hidden="true"><span id="progressBar"></span></div>
+        <p id="progressDetail">Completá módulos y actividades para registrar tu avance.</p>
+      </div>
+
+      <nav class="module-nav" id="moduleNav">
+        <button class="nav-item active" data-target="inicio" type="button"><span>0</span> Inicio</button>
+        <button class="nav-item" data-target="formas" type="button"><span>1</span> Ecuaciones de la recta</button>
+        <button class="nav-item" data-target="constructor" type="button"><span>2</span> Constructor interactivo</button>
+        <button class="nav-item" data-target="posiciones" type="button"><span>3</span> Posiciones relativas</button>
+        <button class="nav-item" data-target="distancias" type="button"><span>4</span> Distancias y proyección</button>
+        <button class="nav-item" data-target="mediatriz" type="button"><span>5</span> Mediatriz y equidistancia</button>
+        <button class="nav-item" data-target="area" type="button"><span>6</span> Área de triángulos</button>
+        <button class="nav-item" data-target="practica" type="button"><span>7</span> TP 5 guiado</button>
+        <button class="nav-item" data-target="aplicaciones" type="button"><span>8</span> Aplicaciones petroleras</button>
+        <button class="nav-item" data-target="autoevaluacion" type="button"><span>9</span> Autoevaluación</button>
+        <button class="nav-item" data-target="materiales" type="button"><span>i</span> Videos y archivos</button>
+      </nav>
+
+      <div class="sidebar-note">
+        <strong>Idea de trabajo</strong>
+        <p>Primero identificá un punto y una dirección. Después elegí la forma de ecuación que mejor aprovecha esos datos.</p>
+      </div>
+    </aside>
+
+    <main id="contenido" class="content">
+      <section class="module active" id="inicio" data-module="inicio">
+        <div class="hero line-hero">
+          <div class="hero-copy">
+            <p class="kicker">Teoría + práctica + exploración gráfica</p>
+            <h2>Una misma recta, muchas formas de describirla</h2>
+            <p>Esta página acompaña el estudio de la Unidad 5 y la resolución del <strong>TP 5 del recursado 2026</strong>. La propuesta combina teoría, gráficos manipulables, resoluciones por pasos y actividades para decidir qué procedimiento conviene en cada situación.</p>
+            <div class="hero-actions">
+              <button class="button primary" data-go="formas" type="button">Comenzar por la teoría</button>
+              <button class="button secondary" data-go="practica" type="button">Ir al TP 5 guiado</button>
+            </div>
+          </div>
+          <div class="line-hero-art" aria-label="Recta determinada por un punto y un vector director">
+            <svg viewBox="0 0 520 360" role="img" aria-label="Recta en el plano con punto, vector director y vector normal">
+              <defs>
+                <marker id="heroArrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#173d7a"/></marker>
+                <marker id="heroArrowRed" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#b42318"/></marker>
+              </defs>
+              <g stroke="#d7e0ec" stroke-width="1">
+                <path d="M50 60H480M50 110H480M50 160H480M50 210H480M50 260H480M50 310H480"/>
+                <path d="M80 35V330M140 35V330M200 35V330M260 35V330M320 35V330M380 35V330M440 35V330"/>
+              </g>
+              <path d="M55 280H485" stroke="#25344b" stroke-width="2"/><path d="M140 330V30" stroke="#25344b" stroke-width="2"/>
+              <path d="M65 300L465 70" stroke="#173d7a" stroke-width="5"/>
+              <circle cx="235" cy="202" r="8" fill="#17233b"/>
+              <path d="M235 202L345 139" stroke="#173d7a" stroke-width="5" marker-end="url(#heroArrowBlue)"/>
+              <path d="M235 202L290 297" stroke="#b42318" stroke-width="5" marker-end="url(#heroArrowRed)"/>
+              <text x="216" y="190" font-weight="800">P₀</text><text x="350" y="135" fill="#173d7a" font-weight="800">d⃗</text><text x="295" y="312" fill="#b42318" font-weight="800">n⃗</text><text x="442" y="88" fill="#173d7a" font-weight="800">L</text>
+            </svg>
+            <div class="hero-formula">\[L:(x,y)=(x_0,y_0)+\lambda(u_x,u_y)\]</div>
+          </div>
+        </div>
+
+        <div class="section-heading"><div><p class="kicker">Recorrido</p><h3>La secuencia de la página sigue las necesidades del TP</h3></div></div>
+        <div class="study-grid">
+          <article class="study-card"><span>1</span><h4>Representar</h4><p>Leer punto, dirección, pendiente, normal y cortes con los ejes.</p></article>
+          <article class="study-card"><span>2</span><h4>Transformar</h4><p>Pasar entre las formas vectorial, paramétrica, cartesiana, explícita e implícita.</p></article>
+          <article class="study-card"><span>3</span><h4>Relacionar</h4><p>Traducir paralelismo, perpendicularidad, incidencia, equidistancia y ángulos.</p></article>
+          <article class="study-card"><span>4</span><h4>Aplicar</h4><p>Resolver distancias, mediatrices, áreas, haces y modelos lineales.</p></article>
+        </div>
+
+        <article class="route-board">
+          <h3>Correspondencia con el TP 5 del recursado 2026</h3>
+          <div class="route-columns route-six">
+            <div><strong>Ejercicios 1–3</strong><p>Formas de la recta, puntos, pertenencia y alineación.</p></div>
+            <div><strong>Ejercicios 4–6</strong><p>Parámetros, posiciones relativas y paralelogramos.</p></div>
+            <div><strong>Ejercicios 7–8</strong><p>Mediatriz y lugares de equidistancia.</p></div>
+            <div><strong>Ejercicios 9–11</strong><p>Ángulos, pendientes y bisectrices.</p></div>
+            <div><strong>Ejercicios 12–16</strong><p>Distancias, proyección y área de triángulos.</p></div>
+            <div><strong>Ejercicios 17–18</strong><p>Haces de rectas y propiedades de familias.</p></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="module" id="formas" data-module="formas" hidden>
+        <div class="module-title">
+          <div><p class="kicker">Módulo 1</p><h2>Ecuaciones de una recta en el plano</h2></div>
+          <button class="complete-button" data-complete="formas" type="button">Marcar módulo como revisado</button>
+        </div>
+
+        <div class="two-column">
+          <article class="theory-card">
+            <h3>Punto y vector director</h3>
+            <p>Una recta queda determinada por un punto y una dirección. Si \(P_0=(x_0,y_0)\) y \(\vec d=(u_x,u_y)\neq\vec0\), entonces:</p>
+            <div class="formula-panel">\[L:(x,y)=(x_0,y_0)+\lambda(u_x,u_y),\qquad \lambda\in\mathbb R.\]</div>
+            <p>Al variar \(\lambda\), se recorren todos los puntos de la recta.</p>
+          </article>
+          <article class="theory-card">
+            <h3>Director, normal y pendiente</h3>
+            <p>Un vector normal puede obtenerse rotando el director noventa grados:</p>
+            <div class="formula-panel">\[\vec d=(u_x,u_y),\qquad \vec n=(u_y,-u_x).\]</div>
+            <p>Cuando \(u_x\neq0\), la pendiente es \(m=\frac{u_y}{u_x}=\tan\alpha\).</p>
+          </article>
+        </div>
+
+        <div class="formula-gallery">
+          <article><h3>Vectorial</h3>\[L:(x,y)=P_0+\lambda\vec d.\]</article>
+          <article><h3>Paramétrica</h3>\[\begin{cases}x=x_0+u_x\lambda\\y=y_0+u_y\lambda\end{cases}\]</article>
+          <article><h3>Cartesiana</h3>\[\frac{x-x_0}{u_x}=\frac{y-y_0}{u_y}.\]</article>
+          <article><h3>Punto–pendiente</h3>\[y-y_0=m(x-x_0).\]</article>
+          <article><h3>Explícita</h3>\[y=mx+n.\]</article>
+          <article><h3>Implícita</h3>\[ax+by+c=0,\qquad \vec n=(a,b).\]</article>
+          <article><h3>Segmentaria</h3>\[\frac{x}{A}+\frac{y}{B}=1.\]</article>
+        </div>
+
+        <article class="callout warning">
+          <strong>Rectas verticales</strong>
+          <p>Una recta vertical no puede escribirse como \(y=mx+n\), porque su pendiente no está definida. Se expresa, por ejemplo, como \(x=x_0\) o \(x-x_0=0\).</p>
+        </article>
+
+        <article class="mini-lab converter-lab">
+          <div class="activity-header"><div><p class="kicker">Conversor</p><h3>Construí todas las formas desde un punto y un director</h3></div><span class="status-pill" id="converterStatus">Datos válidos</span></div>
+          <div class="control-panel compact-controls">
+            <label>\(x_0\)<input id="convX0" type="number" value="-2" step="0.5"></label>
+            <label>\(y_0\)<input id="convY0" type="number" value="-1" step="0.5"></label>
+            <label>\(u_x\)<input id="convUx" type="number" value="5" step="0.5"></label>
+            <label>\(u_y\)<input id="convUy" type="number" value="2" step="0.5"></label>
+            <button class="button primary" id="converterUpdate" type="button">Actualizar</button>
+          </div>
+          <div class="converter-results" id="converterResults" aria-live="polite"></div>
+        </article>
+      </section>
+
+      <section class="module" id="constructor" data-module="constructor" hidden>
+        <div class="module-title">
+          <div><p class="kicker">Módulo 2</p><h2>Constructor interactivo de rectas</h2></div>
+          <button class="complete-button" data-complete="constructor" type="button">Marcar módulo como revisado</button>
+        </div>
+
+        <article class="mini-lab">
+          <div class="activity-header"><div><p class="kicker">Applet</p><h3>Mové el punto y el vector director</h3></div><span class="status-pill" id="lineBuilderStatus">Recta definida</span></div>
+          <p class="drag-hint">Arrastrá \(P_0\) o el extremo \(Q\) del vector director. También podés cambiar las coordenadas y mover el parámetro \(\lambda\).</p>
+          <div class="graph-layout">
+            <div class="graph-panel"><svg id="lineBuilderSvg" class="coordinate-stage" viewBox="0 0 720 520" role="img" aria-label="Constructor interactivo de una recta"></svg></div>
+            <div class="control-panel">
+              <div class="point-input-grid">
+                <label>\(x_0\)<input id="lineX0" type="number" value="-2" step="0.5"></label>
+                <label>\(y_0\)<input id="lineY0" type="number" value="-1" step="0.5"></label>
+                <label>\(u_x\)<input id="lineUx" type="number" value="5" step="0.5"></label>
+                <label>\(u_y\)<input id="lineUy" type="number" value="2" step="0.5"></label>
+              </div>
+              <label class="range-control">Parámetro \(\lambda\): <strong id="lambdaValue">1</strong><input id="lineLambda" type="range" min="-4" max="4" step="0.25" value="1"></label>
+              <button class="button secondary" id="lineReset" type="button">Recuperar ejemplo</button>
+              <div class="calculation-output" id="lineBuilderOutput"></div>
+            </div>
+          </div>
+        </article>
+
+        <div class="two-column">
+          <article class="theory-card"><h3>¿Qué permanece?</h3><p>El punto \(P_0\) puede reemplazarse por cualquier otro punto de la recta. El director puede reemplazarse por cualquier múltiplo no nulo. La recta no cambia.</p></article>
+          <article class="theory-card"><h3>¿Qué cambia con \(\lambda\)?</h3><p>Solo cambia el punto \(P(\lambda)=P_0+\lambda\vec d\). Para \(\lambda=0\), se recupera \(P_0\); valores opuestos recorren sentidos opuestos.</p></article>
+        </div>
+      </section>
+
+      <section class="module" id="posiciones" data-module="posiciones" hidden>
+        <div class="module-title">
+          <div><p class="kicker">Módulo 3</p><h2>Posición relativa, paralelismo y perpendicularidad</h2></div>
+          <button class="complete-button" data-complete="posiciones" type="button">Marcar módulo como revisado</button>
+        </div>
+
+        <div class="two-column">
+          <article class="theory-card"><h3>Paralelismo</h3>\[L_1\parallel L_2\iff \vec d_1\parallel\vec d_2\iff \vec n_1\parallel\vec n_2.\]<p>Para rectas no verticales también equivale a \(m_1=m_2\). Después hay que decidir si son distintas o coincidentes.</p></article>
+          <article class="theory-card"><h3>Perpendicularidad</h3>\[L_1\perp L_2\iff \vec d_1\cdot\vec d_2=0.\]<p>Si ambas pendientes existen, \(m_1m_2=-1\).</p></article>
+        </div>
+
+        <article class="mini-lab">
+          <div class="activity-header"><div><p class="kicker">Explorador</p><h3>Compará dos rectas y clasificá la configuración</h3></div><span class="status-pill" id="positionStatus">Secantes</span></div>
+          <div class="graph-layout">
+            <div class="graph-panel"><svg id="positionSvg" class="coordinate-stage" viewBox="0 0 720 520" role="img" aria-label="Dos rectas en el plano"></svg></div>
+            <div class="control-panel">
+              <fieldset class="line-control-set"><legend>Recta \(L_1\)</legend><label><input id="posVertical1" type="checkbox"> Vertical</label><label>Pendiente \(m_1\)<input id="posM1" type="number" value="1" step="0.25"></label><label>Ordenada \(n_1\) / corte \(x=c_1\)<input id="posN1" type="number" value="1" step="0.5"></label></fieldset>
+              <fieldset class="line-control-set"><legend>Recta \(L_2\)</legend><label><input id="posVertical2" type="checkbox"> Vertical</label><label>Pendiente \(m_2\)<input id="posM2" type="number" value="-1" step="0.25"></label><label>Ordenada \(n_2\) / corte \(x=c_2\)<input id="posN2" type="number" value="2" step="0.5"></label></fieldset>
+              <div class="calculation-output" id="positionOutput"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="callout info"><strong>Ángulo entre rectas</strong><p>La forma más estable usa vectores directores: \(\cos\theta=\frac{|\vec d_1\cdot\vec d_2|}{\|\vec d_1\|\,\|\vec d_2\|}\). El valor absoluto garantiza el ángulo menor.</p></article>
+      </section>
+
+      <section class="module" id="distancias" data-module="distancias" hidden>
+        <div class="module-title">
+          <div><p class="kicker">Módulo 4</p><h2>Distancia de un punto a una recta</h2></div>
+          <button class="complete-button" data-complete="distancias" type="button">Marcar módulo como revisado</button>
+        </div>
+
+        <div class="two-column">
+          <article class="theory-card"><h3>Fórmula</h3><p>Si \(L:ax+by+c=0\) y \(P=(x_0,y_0)\), entonces:</p>\[d(P,L)=\frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}.\]</article>
+          <article class="theory-card"><h3>Interpretación</h3><p>La distancia se mide sobre el segmento perpendicular a la recta. Su extremo sobre \(L\) es la proyección ortogonal o pie de la perpendicular.</p></article>
+        </div>
+
+        <article class="mini-lab">
+          <div class="activity-header"><div><p class="kicker">Laboratorio</p><h3>Mové el punto y observá la proyección</h3></div><span class="status-pill" id="distanceStatus">Distancia positiva</span></div>
+          <div class="graph-layout">
+            <div class="graph-panel"><svg id="distanceSvg" class="coordinate-stage" viewBox="0 0 720 520" role="img" aria-label="Distancia entre un punto y una recta"></svg></div>
+            <div class="control-panel">
+              <fieldset><legend>Recta \(ax+by+c=0\)</legend><div class="point-input-grid"><label>\(a\)<input id="distA" type="number" value="2" step="0.5"></label><label>\(b\)<input id="distB" type="number" value="1" step="0.5"></label><label>\(c\)<input id="distC" type="number" value="-7" step="0.5"></label></div></fieldset>
+              <fieldset><legend>Punto \(P\)</legend><div class="point-input-grid"><label>\(x_P\)<input id="distPx" type="number" value="-2" step="0.5"></label><label>\(y_P\)<input id="distPy" type="number" value="2" step="0.5"></label></div></fieldset>
+              <div class="calculation-output" id="distanceOutput"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="callout warning"><strong>Distancia entre rectas paralelas</strong><p>Elegí un punto de una de las rectas y calculá su distancia a la otra. Si las rectas se cortan o coinciden, la distancia es cero.</p></article>
+      </section>
+
+      <section class="module" id="mediatriz" data-module="mediatriz" hidden>
+        <div class="module-title">
+          <div><p class="kicker">Módulo 5 · TP 5, ejercicio 7</p><h2>Mediatriz y lugares de equidistancia</h2></div>
+          <button class="complete-button" data-complete="mediatriz" type="button">Marcar módulo como revisado</button>
+        </div>
+
+        <article class="theorem-card"><h3>Definición como lugar geométrico</h3><p>La mediatriz de \(\overline{AB}\) es el conjunto de puntos \(P\) que satisfacen \(d(P,A)=d(P,B)\). Pasa por el punto medio de \(AB\) y es perpendicular al segmento.</p></article>
+
+        <article class="mini-lab">
+          <div class="activity-header"><div><p class="kicker">Applet</p><h3>Mové A y B; recorré la mediatriz con P</h3></div><span class="status-pill" id="bisectorStatus">Equidistancia verificada</span></div>
+          <div class="graph-layout">
+            <div class="graph-panel"><svg id="bisectorSvg" class="coordinate-stage" viewBox="0 0 720 520" role="img" aria-label="Mediatriz de un segmento"></svg></div>
+            <div class="control-panel">
+              <div class="point-input-grid">
+                <label>\(x_A\)<input id="bisAx" type="number" value="-1" step="0.5"></label><label>\(y_A\)<input id="bisAy" type="number" value="-2" step="0.5"></label>
+                <label>\(x_B\)<input id="bisBx" type="number" value="3" step="0.5"></label><label>\(y_B\)<input id="bisBy" type="number" value="6" step="0.5"></label>
+              </div>
+              <label class="range-control">Posición de \(P\): <strong id="bisTValue">0.5</strong><input id="bisT" type="range" min="-3" max="3" step="0.1" value="0.5"></label>
+              <button class="button secondary" id="bisReset" type="button">Recuperar ejemplo del TP</button>
+              <div class="calculation-output" id="bisectorOutput"></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="module" id="area" data-module="area" hidden>
+        <div class="module-title">
+          <div><p class="kicker">Módulo 6 · TP 5, ejercicio 16.a</p><h2>Área de un triángulo mediante rectas y distancias</h2></div>
+          <button class="complete-button" data-complete="area" type="button">Marcar módulo como revisado</button>
+        </div>
+
+        <article class="theorem-card">
+          <h3>La idea</h3>
+          <p>Dados \(A\), \(B\) y \(C\), tomamos como base el segmento \(\overline{AB}\). La altura es la distancia entre \(C\) y la recta \(L_{AB}\).</p>
+          \[b=d(A,B),\qquad h=d(C,L_{AB}),\qquad \mathcal A=\frac{b\,h}{2}.\]
+        </article>
+
+        <article class="mini-lab triangle-lab">
+          <div class="activity-header"><div><p class="kicker">Applet</p><h3>Mové los tres vértices y observá base, altura y área</h3></div><span class="status-pill" id="triangleStatus">Triángulo no degenerado</span></div>
+          <p class="drag-hint">La base elegida es siempre \(\overline{AB}\). La altura se traza desde \(C\) hasta la recta que pasa por \(A\) y \(B\).</p>
+          <div class="graph-layout">
+            <div class="graph-panel"><svg id="triangleSvg" class="coordinate-stage" viewBox="0 0 720 520" role="img" aria-label="Área de un triángulo por base y altura"></svg></div>
+            <div class="control-panel">
+              <div class="point-input-grid six-inputs">
+                <label>\(x_A\)<input id="triAx" type="number" value="1" step="0.5"></label><label>\(y_A\)<input id="triAy" type="number" value="2" step="0.5"></label>
+                <label>\(x_B\)<input id="triBx" type="number" value="4" step="0.5"></label><label>\(y_B\)<input id="triBy" type="number" value="-1" step="0.5"></label>
+                <label>\(x_C\)<input id="triCx" type="number" value="5" step="0.5"></label><label>\(y_C\)<input id="triCy" type="number" value="2" step="0.5"></label>
+              </div>
+              <button class="button secondary" id="triangleReset" type="button">Recuperar ejemplo del TP</button>
+              <div class="metric-grid triangle-metrics"><div><span>Base</span><strong id="triBaseValue">—</strong></div><div><span>Altura</span><strong id="triHeightValue">—</strong></div><div><span>Área</span><strong id="triAreaValue">—</strong></div></div>
+            </div>
+          </div>
+          <div class="step-stage triangle-steps">
+            <div class="stepper-header"><div><p class="kicker">Resolución progresiva</p><h3>Ejemplo \(A=(1,2)\), \(B=(4,-1)\), \(C=(5,2)\)</h3></div><button class="button primary" id="triangleNextStep" type="button">Mostrar paso 1</button></div>
+            <div id="triangleStepContent" class="step-content"><p class="step-placeholder">La resolución aparecerá paso a paso.</p></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="module" id="practica" data-module="practica" hidden>
+        <div class="module-title">
+          <div><p class="kicker">Módulo 7</p><h2>TP 5 guiado</h2></div>
+          <button class="complete-button" data-complete="practica" type="button">Marcar módulo como revisado</button>
+        </div>
+        <p class="practice-intro">Cada tarjeta trabaja una estrategia del TP. La solución no aparece completa: avanzá solo cuando hayas intentado el paso anterior.</p>
+
+        <div class="strategy-grid">
+          <article class="guided-card"><p class="kicker">Ejercicio 2.b</p><h3>Recta paralela por un punto</h3><p>Por \(A=(-1,-2)\), paralela a \(y-3x-9=0\).</p><button class="button secondary open-stepper" data-stepper="tp2b" type="button">Abrir resolución</button></article>
+          <article class="guided-card"><p class="kicker">Ejercicio 5</p><h3>Paralelas, perpendiculares y coincidentes</h3><p>Determinar \(h\) y \(k\) en dos rectas con parámetros.</p><button class="button secondary open-stepper" data-stepper="tp5" type="button">Abrir resolución</button></article>
+          <article class="guided-card"><p class="kicker">Ejercicio 7</p><h3>Mediatriz y equidistancia</h3><p>Trabajar con \(A=(-1,-2)\) y \(B=(3,6)\).</p><button class="button secondary open-stepper" data-stepper="tp7" type="button">Abrir resolución</button></article>
+          <article class="guided-card"><p class="kicker">Ejercicio 12.c</p><h3>Distancia entre rectas paralelas</h3><p>Transformar ecuaciones y reducir el problema a punto–recta.</p><button class="button secondary open-stepper" data-stepper="tp12c" type="button">Abrir resolución</button></article>
+          <article class="guided-card"><p class="kicker">Ejercicio 14</p><h3>Punto más cercano y proyección</h3><p>Encontrar el punto de \(L\) más cercano a \(A\).</p><button class="button secondary open-stepper" data-stepper="tp14" type="button">Abrir resolución</button></article>
+          <article class="guided-card"><p class="kicker">Ejercicios 17–18</p><h3>Haces de rectas</h3><p>Reconocer qué propiedad permanece al variar el parámetro.</p><button class="button secondary open-stepper" data-stepper="tp17" type="button">Abrir resolución</button></article>
+        </div>
+
+        <div id="stepperMount" class="stepper-mount" hidden></div>
+
+        <article class="tp-checklist">
+          <div class="tp-progress"><div><p class="kicker">Seguimiento</p><h3>Recorrido por los 18 ejercicios</h3></div><strong id="tpProgressText">0/18</strong></div>
+          <div id="tpChecklist" class="checklist-grid"></div>
+        </article>
+      </section>
+
+      <section class="module" id="aplicaciones" data-module="aplicaciones" hidden>
+        <div class="module-title">
+          <div><p class="kicker">Módulo 8</p><h2>Aplicaciones en Ingeniería en Petróleo</h2></div>
+          <button class="complete-button" data-complete="aplicaciones" type="button">Marcar módulo como revisado</button>
+        </div>
+
+        <article class="mini-lab petroleum-lab">
+          <div class="activity-header"><div><p class="kicker">Aplicación 1 del TP</p><h3>Modelo lineal de producción de un pozo</h3></div><span class="status-pill">Modelo decreciente</span></div>
+          <p>Se registran \(950\) bbl/d a los \(2\) meses y \(700\) bbl/d a los \(7\) meses. El modelo lineal que pasa por ambos datos es:</p>
+          <div class="formula-panel">\[P(x)=-50x+1050.\]</div>
+          <div class="graph-layout">
+            <div class="graph-panel"><svg id="oilSvg" class="oil-stage" viewBox="0 0 720 460" role="img" aria-label="Modelo lineal de producción petrolera"></svg></div>
+            <div class="control-panel">
+              <label class="range-control">Mes: <strong id="oilMonthValue">9</strong><input id="oilMonth" type="range" min="1" max="10" step="0.25" value="9"></label>
+              <div class="metric-grid"><div><span>Producción</span><strong id="oilProduction">600 bbl/d</strong></div><div><span>Pendiente</span><strong>−50 bbl/d por mes</strong></div></div>
+              <label>Buscar el mes en que la producción fue de <input id="oilTarget" type="number" value="850" step="10"> bbl/d</label>
+              <button class="button primary" id="oilSolveTarget" type="button">Calcular mes</button>
+              <div class="calculation-output" id="oilOutput"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="two-column">
+          <div class="theory-card"><h3>Interpretar la pendiente</h3><p>La pendiente \(-50\) indica que, dentro del período modelado, la producción disminuye aproximadamente \(50\) barriles diarios por cada mes transcurrido.</p></div>
+          <div class="theory-card"><h3>Dominio contextual</h3><p>El TP pide representar el modelo entre los meses \(1\) y \(10\). La recta matemática continúa indefinidamente, pero el modelo físico solo se usa en el intervalo indicado.</p></div>
+        </article>
+      </section>
+
+      <section class="module" id="autoevaluacion" data-module="autoevaluacion" hidden>
+        <div class="module-title">
+          <div><p class="kicker">Módulo 9</p><h2>Autoevaluación</h2></div>
+          <button class="complete-button" data-complete="autoevaluacion" type="button">Marcar módulo como revisado</button>
+        </div>
+        <article class="quiz-intro"><h3>Diez preguntas aleatorias</h3><p>La evaluación cambia al reiniciarla. Cada respuesta incluye una explicación breve.</p><button class="button primary" id="startQuiz" type="button">Generar autoevaluación</button></article>
+        <form id="quizForm" class="quiz-question-list" hidden></form>
+        <div class="quiz-result" id="quizResult" hidden></div>
+      </section>
+
+      <section class="module" id="materiales" data-module="materiales" hidden>
+        <div class="module-title"><div><p class="kicker">Recursos</p><h2>Videos y archivos de la unidad</h2></div></div>
+
+        <div class="video-grid">
+          <article class="video-card"><div class="video-frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/r9_CMgY0LZw" title="Video de apoyo para rectas en el plano" allowfullscreen></iframe></div><div class="video-copy"><h3>Recurso de apoyo compartido</h3><p>Usalo para revisar la explicación general y compararla con las formas del apunte.</p></div></article>
+          <article class="video-card"><div class="video-frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/i78SwelmztM" title="Ecuaciones vectorial paramétrica y continua de la recta" allowfullscreen></iframe></div><div class="video-copy"><h3>Formas vectorial, paramétrica y cartesiana</h3><p>Prestá atención a qué datos se leen directamente en cada forma.</p></div></article>
+          <article class="video-card"><div class="video-frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/UKLjqQJTVWI" title="Ecuaciones de la recta en el plano" allowfullscreen></iframe></div><div class="video-copy"><h3>Repaso amplio de rectas en el plano</h3><p>Incluye ecuaciones, distancia y ángulo entre rectas.</p></div></article>
+          <article class="video-card"><div class="video-frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/9NVdP_uFxTw" title="Distancia de un punto a una recta" allowfullscreen></iframe></div><div class="video-copy"><h3>Distancia punto–recta</h3><p>Identificá el vector normal y el significado del valor absoluto.</p></div></article>
+          <article class="video-card"><div class="video-frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/vBgq-M0Okvs" title="Ecuación de la mediatriz" allowfullscreen></iframe></div><div class="video-copy"><h3>Mediatriz de un segmento</h3><p>Compará el método del punto medio y la perpendicular con la condición de equidistancia.</p></div></article>
+          <article class="video-card"><div class="video-frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/n0eYVUkg_PM" title="Área de un triángulo usando recta y distancia" allowfullscreen></iframe></div><div class="video-copy"><h3>Área mediante base y distancia a una recta</h3><p>Es el mismo enfoque usado en el applet del ejercicio 16.a.</p></div></article>
+        </div>
+
+        <div class="resource-grid">
+          <a class="resource-card primary-resource" href="materiales/tp5-recursado-2026.pdf"><span>PDF</span><div><strong>TP 5 del recursado 2026</strong><p>Referencia principal de actividades y ejercicios.</p></div></a>
+          <a class="resource-card" href="materiales/tp5-recursado-2026.tex"><span>TeX</span><div><strong>Fuente LaTeX del TP</strong><p>Documento editable del trabajo práctico.</p></div></a>
+          <a class="resource-card" href="materiales/teoria-rectas-plano.pdf"><span>PDF</span><div><strong>Apunte teórico completo</strong><p>Rectas en el plano · Prof. Lorena Alfonso.</p></div></a>
+          <a class="resource-card" href="materiales/resolucion-tp5.pdf"><span>PDF</span><div><strong>Resolución del TP 5</strong><p>Desarrollos y gráficos usados como apoyo didáctico.</p></div></a>
+          <a class="resource-card" href="materiales/resolucion-tp5.tex"><span>TeX</span><div><strong>Fuente de la resolución</strong><p>Versión editable con procedimientos completos.</p></div></a>
+          <a class="resource-card" href="materiales/clase-rectas-parte-1.ppsx"><span>PPSX</span><div><strong>Clase · Parte 1</strong><p>Ecuaciones y elementos de la recta.</p></div></a>
+          <a class="resource-card" href="materiales/clase-rectas-parte-2.ppsx"><span>PPSX</span><div><strong>Clase · Parte 2</strong><p>Posiciones, distancias y construcciones.</p></div></a>
+          <a class="resource-card" href="materiales/clase-rectas-parte-3.ppsx"><span>PPSX</span><div><strong>Clase · Parte 3</strong><p>Ángulos, haces y aplicaciones.</p></div></a>
+        </div>
+
+        <article class="callout info"><strong>Publicación estática</strong><p>La página usa HTML, CSS y JavaScript. MathJax se carga desde CDN; no se necesita Node.js ni un servidor de aplicaciones.</p></article>
+      </section>
+    </main>
+  </div>
+
+  <div class="mobile-overlay" id="mobileOverlay" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

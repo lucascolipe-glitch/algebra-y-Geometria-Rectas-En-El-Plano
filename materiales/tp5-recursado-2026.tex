@@ -1,0 +1,1028 @@
+\documentclass[11pt]{article}
+
+
+\usepackage[inline]{asymptote}
+\usepackage{asypictureB}
+%\usepackage[default]{frcursive}
+\usepackage[a4paper,text={17.5cm,25.4cm},centering,top=2.1cm]{geometry} 
+\usepackage{amsfonts}
+%\usepackage{amsmath}
+\usepackage{amssymb,amsmath,stackrel,mathrsfs} %wasysym
+\usepackage{multicol}
+\usepackage{pdflscape}% girar una pagina, hay que usar \begin{landscape}En este punto inicia la hoja en vertical \end{landscape}
+%\usepackage[mathcal]{euscript}
+%\usepackage{amssymb}
+\usepackage{esvect}%para la flecha de vector 
+
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+%\usepackage[latin1,ansinew]{inputenc}\usepackage{calligra}
+%\usepackage[pdftex]{graphicx}
+%\usepackage{etex}
+\usepackage{calligra}
+\usepackage{array}
+ \usepackage{booktabs}
+ \usepackage{ifsym}
+\usepackage{pgf,tikz,pgfplots}
+\usepackage{tkz-graph}%paquete (di)grafos
+\usepackage{tkz-euclide}% Para realizar diagramas que coloreen conjuntos
+\usetikzlibrary[decorations.text]% Decorar curvas
+%\usetikzlibrary{matrix}
+\usetikzlibrary{arrows,matrix}
+%\usetkzobj{all}
+
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{makecell} %Paquete para controlar altura de celdas
+\usepackage{verbatim} 
+\usetikzlibrary{babel}%para no general error al usar babel y tikz simultaneamente.
+\usetikzlibrary{patterns,patterns.meta}%%%%%%%%%%%para  pintar de forma rrallada un rectangulo
+
+\usepackage{pictex}
+\usepackage{verbatim}%me sirve para usar comentarios con mucha lineas 
+\usepackage{amstext}
+\usepackage{enumerate}
+%\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{mathdots}% para tener mas opciones de puntos suspensivos
+
+%\usepackage{pgf,tikz}%,pgfplots
+%\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+%\usetikzlibrary{arrows}
+%\usepackage{etex,tkz-euclide} 
+%\usetkzobj{all}
+\usepackage{color}
+
+\usepackage{cancel}
+\newcommand{\Cancelar}[2][black]{{\color{#1}\cancel{\color{black}#2}}}%%% para cancelar con colores recordar usar mayusculas
+\usepackage{lscape}%paquete para girar hojas
+
+
+\usepackage{bm}
+
+
+
+
+
+
+
+
+
+\newcommand{\dis}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\re}{\mathbb{R}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\K}{\mathbb{K}}
+%\newcommand{\B}{\mathcal{B}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\can}{\mathcal{C}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\Pol}{\mathcal{P}}
+
+\newcommand{\iv}{\bm{\check{\imath}}}
+\newcommand{\jv}{\bm{\check{\jmath}}}
+\newcommand{\kv}{\check{\bm k}}
+\newcommand{\moduloprop}{\hookrightarrow_{\hspace{-2.5mm}\mbox{\tiny$^{_\neq}$}}}
+
+\newtheorem{ejer}{Ejercicio}[]
+
+\newtheorem{teo}{Teorema}%[section]
+\newtheorem{lema}[teo]{Lema}
+\newtheorem{propo}[teo]{Proposición}
+\newtheorem{defi}[teo]{Definición}
+\newtheorem{ejem}[teo]{}
+\newtheorem*{ejemsinn}{}
+\newtheorem{obs}[teo]{Observación}%[section]
+\newtheorem{acla}{Aclaración}%[section]
+\newtheorem{act}{Actividad}%%%%%%%%%%%%%%%%
+\newtheorem*{defsinn}{{\bf Definición}:}
+\newtheorem*{ejemplosinn}{{\bf Ejemplo}:}
+\newtheorem*{proposinn}{{\bf\sc Proposición}}
+\newtheorem*{obssinn}{Observación:}
+\newtheorem*{corosinn}{Corolario}
+\newtheorem*{propsinn}{Propiedades:}
+%\newenvironment{proof} { \noindent {\bf Demostración: }\rm}{$\quad \hfill \blacksquare $}
+\usepackage{setspace} % (es una alternativa a \renewcommand{\baselinestretch}{1.3}) usando \doublespacing \onehalfspace \singlespace \spacing{1.5}  se va cambiando segun uno quiera
+\spacing{1.3}
+
+%\newenvironment{proof}[Demostración:]
+\newenvironment{sol}{ \noindent {\bf Solución:} \rm}{%\hfill \protect\tikz[overlay,yshift=-4pt]\protect\node[xshift=8mm, yshift=13mm, blue]() {\huge $\checkmark$ };
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\renewcommand{\baselinestretch}{1.5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[framemethod=TikZ]{mdframed}%Paquete para estilos de los bordes de los ambientes Importante este paquete (mdframed) define un entorno  que trata automáticamente los saltos de página en el texto enmarcado.
+            \mdfsetup{skipabove=1\baselineskip, skipbelow=1.5\baselineskip ,             frametitlefont= \sffamily\bfseries , needspace=4\baselineskip , splittopskip=1.5\baselineskip} %
+            \mdfsetup{apptotikzsetting={\tikzset{mdfbackground/.append style={draw=none}}}} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Estilo para Cuentas auxiliares
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mdfdefinestyle{Cuentaauxi}{%skipabove=10pt, skipbelow=0,
+userdefinedwidth=1.02\textwidth,align=center,
+  everyline=true,
+  ignorelastdescenders=true,
+  middlelinewidth=1pt,
+  linecolor=black!20,
+  outerlinewidth=1pt,
+  %leftline=false,topline=false
+  %rightline=false,bottomline=false,
+  %backgroundcolor=black!20,
+  innerleftmargin=2mm, innerrightmargin=2mm,
+  innerbottommargin=3mm,
+  innertopmargin=1mm,
+  frametitleaboveskip=2mm,
+  frametitlebelowskip=2mm,
+  %frametitlerule=false,
+  %repeatframetitle=false,
+ % outerlinewidth=6pt,outerlinecolor=blue!20,
+ pstricksappsetting={\addtopsstyle{mdfouterlinestyle}{linestyle=dashed}},
+ %firstextra={\node[xshift=5cm,right,draw=White, line width=1.5pt,%star,star points=10,star point ratio=1.2, 
+ %minimum size=15mm, fill=white] at (P-|O) {\tikzpicture\draw[draw=black!20,decoration=snake, fill=white] (0,0) --(2.5,0) decorate{--(2.5,1)}--(0,1)decorate{--cycle};%\includegraphics[width=10mm]{.pdf}
+ %  \endtikzpicture
+ %}; },
+ %singleextra={\node[xshift=5cm,right,draw=White, line width=1.5pt,%star,star points=10,star point ratio=1.2, minimum size=15mm,
+  %fill=white] at (P-|O) {\tikzpicture\draw[draw=black!20,decoration=snake, fill=white] (0,0) --(2.5,0) decorate{--(2.5,1)}--(0,1)decorate{--cycle};%\includegraphics[width=10mm]{.pdf}    
+ %  \endtikzpicture
+ %}; }
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Estilo para Citar
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mdfdefinestyle{citar}{
+userdefinedwidth=.83\textwidth ,align=center,
+skipabove=5pt, skipbelow=5pt,
+  everyline=true,
+  ignorelastdescenders=true,
+  middlelinewidth=1pt,
+  linecolor=blue!60,
+  outerlinewidth=2pt,
+  %leftline=false,
+  topline=false,
+  rightline=false,
+  bottomline=false,
+  %backgroundcolor=black!20,
+  innerleftmargin=5mm, innerrightmargin=5mm,
+  innerbottommargin=3mm,
+  innertopmargin=1mm,
+  leftmargin= 14mm,
+  %frametitleaboveskip=2mm,
+  %frametitlebelowskip=2mm,
+  %frametitlerule=false,
+  %repeatframetitle=false,
+ % outerlinewidth=6pt,outerlinecolor=blue!20,
+ pstricksappsetting={\addtopsstyle{mdfouterlinestyle}{linestyle=dashed}},
+ %firstextra={\node[xshift=5cm,right,draw=White, line width=1.5pt,%star,star points=10,star point ratio=1.2, 
+ %minimum size=15mm, fill=white] at (P-|O) {\tikzpicture\draw[draw=black!20,decoration=snake, fill=white] (0,0) --(2.5,0) decorate{--(2.5,1)}--(0,1)decorate{--cycle};%\includegraphics[width=10mm]{.pdf}
+ %  \endtikzpicture
+ %}; },
+ %singleextra={\node[xshift=5cm,right,draw=White, line width=1.5pt,%star,star points=10,star point ratio=1.2, minimum size=15mm,
+  %fill=white] at (P-|O) {\tikzpicture\draw[draw=black!20,decoration=snake, fill=white] (0,0) --(2.5,0) decorate{--(2.5,1)}--(0,1)decorate{--cycle};%\includegraphics[width=10mm]{.pdf}    
+ %  \endtikzpicture
+ %}; }
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Dem}{\protect\tikz[overlay,yshift=-4pt]\protect\draw[line width=1.5pt,line cap=round,color=gray] (0,0)[out=14,in=180] to node [shift=(90:6.pt),color=black] {\large\bf Dem:} (7:1); \qquad \quad }
+\DeclareRobustCommand{\michi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[1]{\raisebox{\depth}{\large$#1\chi$}} % inner command, used by \rchi
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% comando aclaraciones  
+
+\newcommand{\aclaracion}[2]{
+
+\begin{center}
+\definecolor{gris}{rgb}{0.5,0.5,0.5}
+\begin{tikzpicture}[line cap=round,line join=round,scale=1]
+%\draw [color=gris,dash pattern=on 1pt off 1pt, xstep=1cm,ystep=1cm] (0.1,0.1) grid (6.3,6.3);
+%\draw[color=black] (0.,0.) -- (\linewidth,0.);
+\node at (.23,{.9*#2}) [color=black,above right] {\bf #1};
+\foreach \y in {1,2,...,#2}
+\draw[shift={(0,{.9*\y})},color=gris,opacity=.5] (0.,0.) -- ({.99*\linewidth},0.);
+\end{tikzpicture} 
+\end{center}
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% comando respuesta 
+
+\newcommand{\res}[1]{
+
+\begin{center}
+\definecolor{gris}{rgb}{0.5,0.5,0.5}
+\begin{tikzpicture}[line cap=round,line join=round,scale=1]
+%\draw [color=gris,dash pattern=on 1pt off 1pt, xstep=1cm,ystep=1cm] (0.1,0.1) grid (6.3,6.3);
+%\draw[color=black] (0.,0.) -- (\linewidth,0.);
+\node at (.23,{.9*#1}) [color=black,above right] {\bf respuesta:};
+\foreach \y in {1,2,...,#1}
+\draw[shift={(0,{.9*\y})},color=gris,opacity=.5] (0.,0.) -- ({.99*\linewidth},0.);
+\end{tikzpicture} 
+\end{center}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% comando ejemplo para completar 
+
+\newcommand{\ejparacompletar}[1]{
+
+\begin{center}
+\definecolor{gris}{rgb}{0.5,0.5,0.5}
+\begin{tikzpicture}[line cap=round,line join=round,scale=1]
+%\draw [color=gris,dash pattern=on 1pt off 1pt, xstep=1cm,ystep=1cm] (0.1,0.1) grid (6.3,6.3);
+%\draw[color=black] (0.,0.) -- (\linewidth,0.);
+\node at (.23,{.9*#1}) [color=black,above right] {\bf Ejemplo:};
+\foreach \y in {1,2,...,#1}
+\draw[shift={(0,{.9*\y})},color=gris,opacity=.5] (0.,0.) -- ({.99*\linewidth},0.);
+\end{tikzpicture} 
+\end{center}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% comando conclusión 
+
+\newcommand{\conclus}[1]{
+
+\begin{center}
+\definecolor{gris}{rgb}{0.5,0.5,0.5}
+\begin{tikzpicture}[line cap=round,line join=round,scale=1]
+%\draw [color=gris,dash pattern=on 1pt off 1pt, xstep=1cm,ystep=1cm] (0.1,0.1) grid (6.3,6.3);
+%\draw[color=black] (0.,0.) -- (\linewidth,0.);
+\node at (.23,{.9*#1}) [color=black,above right] {\bf Conclusión:};
+\foreach \y in {1,2,...,#1}
+\draw[shift={(0,{.9*\y})},color=gris,opacity=.5] (0.,0.) -- ({.99*\linewidth},0.);
+\end{tikzpicture} 
+\end{center}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% boton calculadora 
+
+\newcommand{\boton}[2]{
+\tikzpicture{  \node[draw,color=#1,fill=#1,text=white,,rounded corners=3mm,text width=7mm,text height =3mm,align=center,midway]  at (0,0) { \large \bf #2 };
+}
+\endtikzpicture
+}
+
+\usepackage[framemethod=TikZ]{mdframed}%Paquete para estilos de los bordes de los ambientes Importante este paquete (mdframed) define un entorno  que trata automáticamente los saltos de página en el texto enmarcado.
+            \mdfsetup{skipabove=2\baselineskip,skipbelow=2\baselineskip,frametitlefont=\sffamily\bfseries, needspace=4\baselineskip, splittopskip=1.5\baselineskip} 
+            \mdfsetup{apptotikzsetting={\tikzset{mdfbackground/.append style={draw=none}}}} 
+            
+            
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Estilo  para cajas
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mdfdefinestyle{teoSty}{backgroundcolor=blue!10, linecolor=blue, linewidth=3pt,
+skipabove=4pt,
+skipbelow=3pt, 
+innerleftmargin=3ex, innerrightmargin=3ex, innertopmargin=3mm, innerbottommargin=3mm, innermargin=15pt, outermargin=-15pt, needspace={0.2\textheight},roundcorner=10pt}
+
+\mdfdefinestyle{ObsSty}{backgroundcolor=red!10, linecolor=red, linewidth=2pt,
+skipabove=4pt,
+skipbelow=3pt, 
+innerleftmargin=3ex, innerrightmargin=3ex, innertopmargin=3mm, innerbottommargin=3mm, innermargin=5pt, outermargin=-5pt, needspace={0.2\textheight},roundcorner=10pt}
+
+\mdfdefinestyle{EjerSty}{backgroundcolor=blue!5!green!5!, linecolor=blue!50!green!50!, linewidth=2pt,
+skipabove=4pt,
+skipbelow=3pt, 
+innerleftmargin=3ex, innerrightmargin=3ex, innertopmargin=3mm, innerbottommargin=3mm, innermargin=5pt, outermargin=-5pt, needspace={0.2\textheight},roundcorner=10pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Estilo  para lineas de relleno usando el paquete patterns y la libreria  patterns.meta
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzdeclarepattern{
+  name=mylines,
+  parameters={
+      \pgfkeysvalueof{/pgf/pattern keys/size},
+      \pgfkeysvalueof{/pgf/pattern keys/angle},
+      \pgfkeysvalueof{/pgf/pattern keys/line width},
+  },
+  bounding box={
+    (0,-0.5*\pgfkeysvalueof{/pgf/pattern keys/line width}) and
+    (\pgfkeysvalueof{/pgf/pattern keys/size},
+0.5*\pgfkeysvalueof{/pgf/pattern keys/line width})},
+  tile size={(\pgfkeysvalueof{/pgf/pattern keys/size},
+\pgfkeysvalueof{/pgf/pattern keys/size})},
+  tile transformation={rotate=\pgfkeysvalueof{/pgf/pattern keys/angle}},
+  defaults={
+    size/.initial=5pt,
+    angle/.initial=45,
+    line width/.initial=.4pt,
+  },
+  code={
+      \draw [line width=\pgfkeysvalueof{/pgf/pattern keys/line width}]
+        (0,0) -- (\pgfkeysvalueof{/pgf/pattern keys/size},0);
+  },
+}
+
+
+
+
+
+\newcommand{\semejante}[1]{\stackrel[#1]{}{\longleftrightarrow}}% \thicksim para decir la Semejanza de matrices la variable #1  indica la operacion elemental 
+\newcommand{\OptipoUno}[1]{\stackrel[#1]{}{=}}
+
+
+
+\newcommand{\indicador}[4]{
+{\tikz[remember picture,overlay]\coordinate (#1) at #2;}{\tikz[remember picture,overlay]\coordinate (#3) at #4;} 
+}
+
+\newcommand{\marka}[2]{
+{\tikz[remember picture,overlay]\coordinate (#1) at #2;}
+}
+
+
+
+
+\newcommand{\cof}{ \mbox{cof}}
+
+\newcommand{\paralela}{\rotatebox[origin=c]{-10}{\Large$\parallel$}}
+
+\usepackage{fancyhdr}
+\fancypagestyle{miestilo}{
+\fancyhead[L]{}
+\fancyhead[C]{}
+\fancyhead[R]{}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{pag \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\renewcommand{\footrulewidth}{1pt}
+\pagestyle{fancy}\markboth{}{}
+\renewcommand{\headrulewidth}{.05pt}
+\renewcommand{\headrule}{{\color{gray}%
+\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
+\renewcommand{\footrule}{{\color{gray}%
+\vskip-\footruleskip\vskip-\footrulewidth
+\hrule width\headwidth height\footrulewidth\vskip\footruleskip}}
+\renewcommand{\footrulewidth}{.50pt}
+\fancyhead[L]{\color{gray}{\footnotesize \sc  \materia} }
+\fancyhead[C]{}
+\fancyhead[R]{\color{gray}{\sc \footnotesize  Universidad Nacional Del Comahue}}
+\fancyfoot[R]{pag. \thepage}
+\fancyfoot[C]{}
+\setlength{\headheight}{15pt}
+
+%\usepackage{wrapfig}
+
+\newcommand{\co}{\mathbb{C}}
+%\newcommand{\re}{\mathbb{R}}
+\newcommand{\q}{\mathbb{Q}}
+\newcommand{\z}{\mathbb{Z}}
+\newcommand{\n}{\mathbb{N}}
+\newcommand{\ve}{\mathbb{V}}
+\newcommand{\w}{\mathbb{W}}
+\newcommand{\be}{{\cal B}}
+\newcommand{\ca}{{\cal C}}
+\newcommand{\pqx}{\mathbb{Q}[x]}
+\newcommand{\prx}{\mathbb{R}[x]}
+\newcommand{\pcx}{\mathbb{C}[x]}
+%\newcommand{\izg}{\big\langle}
+%\newcommand{\rangle}{\big\rangle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\newcommand{\materia}{\sc Álgebra y Geometría I}%separadas con '&'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% se define el encabezado, 
+% el parametro es el texto que va despues de: trabajo practico $N^\circ$... (agregar numero y titulo)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\newcommand{\encabezado}[1]{%
+\fancyfoot[L]{\vspace*{-3.5mm}\color{gray}{\small T. P. 5: Rectas en el plano}}
+\thispagestyle{miestilo} 
+\newcommand{\encabezado}[1]{%
+\fancyfoot[L]{\vspace*{-3.5mm}\color{gray}{\small T. P. #1}}
+%\thispagestyle{miestilo}%
+%--------------------logodpto //texto // logouni------------------
+%--------------------logodpto------------------
+
+\vspace*{-18mm}\hspace*{-11mm} \begin{minipage}{2.7cm}
+\begin{center} 
+     \includegraphics[width=2.7cm, height=2.7cm]{logodpto}
+\end{center}  
+\end{minipage}\hspace*{-15mm} \begin{minipage}{15.9cm}
+\begin{center}
+\begin{tabular}{c @{ - } c}
+ \materia \\
+\carreras
+\end{tabular}
+
+\cuatri
+
+\medskip
+
+TRABAJO PRÁCTICO N$^\circ$#1 
+
+\end{center}
+
+\end{minipage}\hspace{-14mm} \begin{minipage}{2.5cm}
+  \begin{center} 
+    \includegraphics[width=2.5cm, height=2.5cm]{logouni}
+  \end{center}  
+\end{minipage}
+%-----------------------------------------------------
+
+%----------------------------------------------------------------
+\hrule
+%---------------------------------------------------------------
+}%%
+
+
+
+\pagestyle{fancy}
+\def\identacion{-2.5mm}%mueve la identacion de la enumeracion de los ejercicios.
+
+
+\usepackage{asypictureB}
+\begin{asyheader}
+settings.outformat="png";
+settings.render=8;
+import graph3;
+import smoothcontour3;
+
+pen bpen = rgb(0.75, 0.07, 0.01);
+//material m = material(diffusepen=0.7bpen, ambientpen=bpen+opacity(0.8), emissivepen=0.3*bpen,specularpen=0.999white, shininess=1.0);      
+\end{asyheader}
+
+
+\usepackage{multicol}
+\setlength{\columnsep}{7mm}
+
+
+
+
+\begin{document}
+
+
+\setlength{\headheight}{15pt}
+
+\vspace*{-2.5cm}
+%--------------------logodpto------------------
+\begin{figure}[htbp]
+  \begin{minipage}[r][][t]{0.15\textwidth}
+\begin{center} 
+ % Universidad Nacional del Comahue.  
+ \includegraphics[width=2.2cm, height=2.2cm]{imagen/inglogo.jpg}
+\vspace{1.8cm}
+\end{center}  
+\end{minipage}\quad
+% texto central
+\begin{minipage}[r][][t]{0.31\textwidth}
+\begin{center}
+\vspace*{-25mm}
+{\bf \materia }\\[2mm]
+{\bf Módulo 4}
+\end{center}
+\end{minipage}\quad\begin{minipage}[r][][t]{0.31\textwidth}
+\begin{center}
+\vspace*{-25mm}
+\textit{Ingeniería en Petróleo} \\[2mm]
+Primer Cuatrimestre 2026
+\end{center}
+\end{minipage}\quad
+%----------------------logouni-------------------------
+\begin{minipage}[r][][t]{0.15\textwidth}
+  \begin{center} 
+     \includegraphics[width=2.2cm, height=2.2cm]{imagen/Logo_UNco.jpg}
+     \vspace{1.8cm}
+  \end{center}  
+\end{minipage}
+%-----------------------------------------------------
+\end{figure}
+\vspace*{-33mm}
+
+\begin{center}
+{\bf \Large{ Trabajo Práctico 5: Rectas en el plano. }}
+\end{center}
+
+
+
+%\textcolor{red}{Falta aplicar un criterio para los ejercicios de final.}
+
+
+\begin{enumerate}[\hspace{-7mm}$1)$]
+
+\item Hallar las ecuaciones, en todas sus formas, de las siguientes rectas definidas gráficamente:
+
+\medskip
+
+\begin{enumerate}[a) ]
+   
+\begin{minipage}{.45\textwidth}
+\item  \, \vspace{-6mm}   
+\begin{center}
+    
+
+
+
+\definecolor{rojo}{rgb}{0.7,0.4,0.4}
+\definecolor{azul}{rgb}{.4,.4,0.9}
+ 
+\definecolor{gris}{rgb}{0.5,0.5,0.5}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,scale=.75]
+
+% extremos para los ejes
+\xdef\ext{4}
+\xdef\yext{3}
+\xdef\f{-4}
+\xdef\g{-2}
+\pgfmathtruncatemacro{\c}{\f+1}
+\pgfmathtruncatemacro{\d}{\g+1}
+\draw [color=gris!30!,dash pattern=on 1pt off 1pt, xstep=1cm,ystep=1cm] (\f-.3,\g-.3) grid (\ext-.3,\yext+.3);
+
+\draw[->] (\f-.3,0) -- (\ext+.3,0) ;
+
+\draw[->] (0,\g-.3) -- (0,\yext+.3) ;
+
+\foreach \x in {\f,...,-1,1,2,...,\ext}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\tiny $\x$};
+
+\foreach \y in {\g,...,-1,1,2,...,\yext }
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\tiny $\y$};
+
+
+% 
+
+\coordinate (A) at (3,1);%punto a la derecha
+\coordinate (B) at (-2,-1);%punto a la izuierda
+\coordinate (M) at ($1.12*(A) -.12*(B)$);%Punto por delente de A
+\coordinate (m) at ($-.5*(A)+1.5*(B)$);%Punto por detras de B
+
+
+%%%%%Grafico de los puntos
+%\draw[fill=black] (P) circle (1.5pt) node[shift=(-\ang: 5pt),right] {\scriptsize $P=(-2,1)$};
+
+
+%%%% Recta que pasa por A y B
+\draw[blue,fill=blue] (A) circle (2pt) ;
+
+\draw[blue,fill=blue] (B) circle (2pt);
+ 
+% Dibujo de la línea entre A y B
+\draw[thick] (m) -- (M);
+
+
+\end{tikzpicture}
+  
+\end{center}  
+
+
+
+
+\end{minipage}\quad\begin{minipage}{.45\textwidth}
+
+
+\item \, \vspace{-6mm}   
+\begin{center}
+    
+
+
+
+\definecolor{rojo}{rgb}{0.7,0.4,0.4}
+\definecolor{azul}{rgb}{.4,.4,0.9}
+ 
+\definecolor{gris}{rgb}{0.5,0.5,0.5}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,scale=.75]
+
+% extremos para los ejes
+\xdef\ext{4}
+\xdef\yext{1}
+\xdef\f{-3}
+\xdef\g{-4} 
+\pgfmathtruncatemacro{\c}{\f+1}
+\pgfmathtruncatemacro{\d}{\g+1}
+\draw [color=gris!30!,dash pattern=on 1pt off 1pt, xstep=1cm,ystep=1cm] (\f-.3,\g-.3) grid (\ext+.3,\yext+.3);
+\draw[->] (\f-.3,0) -- (\ext+.3,0) ;
+
+\draw[->] (0,\g-.3) -- (0,\yext+.3) ;
+
+
+\foreach \x in {\f,...,-1,1,2,...,\ext}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\tiny $\x$};
+
+\foreach \y in {\g,\d,...,-1,1,...,\yext }
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\tiny $\y$};
+
+
+% 
+
+\coordinate (A) at (4,-4);%punto a la derecha
+\coordinate (B) at (-1,-1);%punto a la izuierda
+\coordinate (M) at ($1.1*(A) -.1*(B)$);%Punto por delente de A
+\coordinate (m) at ($-.49*(A)+1.49*(B)$);%Punto por detras de B
+
+
+%%%%%Grafico de los puntos
+%\draw[fill=black] (P) circle (1.5pt) node[shift=(-\ang: 5pt),right] {\scriptsize $P=(-2,1)$};
+
+
+%%%% Recta que pasa por A y B
+\draw[blue,fill=blue] (A) circle (2pt) ;
+
+\draw[blue,fill=blue] (B) circle (2pt);
+
+% Dibujo de la línea entre A y B
+\draw[thick] (m) -- (M);
+
+
+\end{tikzpicture}
+  
+\end{center}  
+
+
+
+
+\end{minipage}
+
+
+\end{enumerate}
+
+
+
+
+
+
+\item  Hallar la ecuación de la recta que cumple con las siguientes condiciones y graficarlas:
+
+\begin{itemize}
+    \item[(a)] Pasa por el origen de coordenadas y el punto $P = (-3,-1)$.
+    \item[(b)] Pasa por el punto $A = (-1,-2)$ y es paralela a la recta $L_1 : y - 3x - 9 = 0$.
+    \item[(c)] Pasa por el punto $B = (3,-2)$ y tiene un ángulo de inclinación $\hat{\theta}$, con $\hat{\theta} = 135^\circ$.
+    \item[(d)] Forma sobre el semieje positivo $x$ un segmento de longitud 7 y pasa por el punto de abscisa 4 de la recta $M : 5x + 2y = 30$.
+    \item[(e)] Es perpendicular al segmento que forman los puntos $P = (2,1)$ y $Q = (-1,5)$, pasando por el punto $R = (0,-3)$.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+\item  Determinar:
+
+\begin{itemize}
+    \item[(a)] Dos puntos de la recta $L : 3x - 2y - 3 = 0$.
+    \item[(b)] Si los puntos $P = (-3,-1)$ y $Q = \left(-\frac{1}{2}, 3\right)$ pertenecen a la recta $M : -2x + y = 4$.
+    \item[(c)] Si los puntos $A = (6,3)$, $B = (-3,3)$ y $C = (0,-1)$ están alineados. (Resolver este inciso de dos maneras diferentes).
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\item  Dadas las ecuaciones $ax + (2 - b)y - 23 = 0$ y $(a - 1)x + by + 15 = 0$, hallar los valores de $a$ y $b$ para que representen rectas que se intersecan en el punto $R = (2,-3)$.
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+\item Calcular, si es posible, los valores de $h$ y $k$ para que las rectas de ecuaciones $3x + hy + 4 = 0$ y $2x - 4y + k = 0$ sean:
+
+\begin{enumerate}[(a)]
+\begin{multicols}{3}
+    \item  Paralelas no coincidentes.
+    \item Perpendiculares.
+    \item Coincidentes.
+\end{multicols}
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+\item Sean $A = (2,-2)$, $B = (6,-1)$ y $C = (9,3)$ tres puntos de $\mathbb{R}^2$:
+
+\begin{itemize}
+    \item[(a)] Hallar la ecuación de las rectas que contienen los lados del paralelogramo $ABCD$ y determinar las coordenadas del punto $D$ (tener en cuenta que se nombra el paralelogramo en sentido anti-horario).
+    \item[(b)] Escribir la ecuación vectorial de la recta que contiene a la diagonal $AC$.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item Sean los puntos $A = (-1,-2)$ y $B = (3,6)$:
+
+
+\begin{enumerate}[(a)]
+    \item Encontrar la ecuación de la recta mediatriz del segmento $AB$.
+    \item  Hallar un punto sobre el eje $x$ que equidiste de los puntos $A$ y $B$.
+    \item  Hallar, si es posible, un punto sobre la recta $L : 2x - y + 1 = 0$ que equidiste de los puntos $A$ y $B$.
+    \item Hallar, si es posible, un punto sobre la recta $L : 2x + 4y + 4 = 0$ que equidiste de los puntos $A$ y $B$.
+\end{enumerate}
+
+
+
+
+
+
+
+\item  Hallar, si es posible, un punto del eje $y$ que equidiste de la recta $L : 2x + y - 7 = 0$ y del punto $P = (-2,2)$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item  Calcular el ángulo que forman los siguientes pares de rectas:
+
+\begin{enumerate}[(a) ]
+\begin{multicols}{2}
+    \item $\begin{cases}
+    L_1 : 3x - y + 2 = 0 \\[6mm]
+    L_2 : 2x + y = 2
+    \end{cases} $
+
+
+    \item $\left\{
+    \begin{array}{l}
+        L_1 : \begin{cases}
+        x = 3 + \lambda \\
+        y = 2 + 2\lambda
+        \end{cases},\quad \lambda \in \mathbb{R},
+        \\[4mm]
+        L_2 : -2x + y + 4 = 0.
+    \end{array}\right.$
+    
+\end{multicols}
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item Dadas las rectas $L_1 : 3x + 5 = 0$ y $L_2 : ax + 2y - 1 = 0$. Determinar el valor de $a \in \mathbb{R}$ de modo que formen un ángulo de $45^\circ$. Para dicho valor de $a$, graficar ambas rectas en un mismo sistema de ejes cartesianos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item Hallar todas las rectas que contienen al punto $A = (3,-2)$ y forman el mismo ángulo con las rectas $L_1 : (x, y) = (1, 0) + \lambda(4, 2)$, $\lambda \in \mathbb{R}$ y $L_2 : 6x - 3y - 6 = 0$.
+
+
+
+
+
+
+
+
+
+
+\item Analizar y calcular las siguientes distancias:
+
+\begin{itemize}
+    \item[(a)] Entre la recta $L : \frac{x - 2}{3} = \frac{y + 1}{-2}$ y el origen de coordenadas.
+    \item[(b)] Entre la recta $M : \frac{x}{-3} + \frac{y}{4} = 1$ y el punto $A = \left(\frac{3}{2}, 6\right)$.
+    \item[(c)] Entre las rectas $L_1 : \begin{cases} x &= -2 + t \\ y &= 3 - t \end{cases}, t \in \mathbb{R}$ y $L_2 : \begin{cases} x &= 5 + k \\ y &= -2 - k \end{cases}, k \in \mathbb{R}$.
+    \item[(d)] Entre las rectas $T_1 : (x, y) = (1, 2) + \mu(4, -1), \mu \in \mathbb{R}$ y $T_2 : -x + 3y + 9 = 0$.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\item 
+\begin{enumerate}[(a)]
+    \item Hallar los puntos pertenecientes a la recta $L : 5x - y + 6 = 0$ que distan 2 unidades del punto $P = (-3, 1)$.
+    \item  Determinar el o los valores que puede tomar $k \in \mathbb{R}$ para que la distancia de la recta $L : -8x + 6y = k$ al punto $P = (1, 1)$ sea $\frac{1}{2}$.
+    \item Encontrar el o los puntos de la recta $L_1 : y = 3x - 2$ que distan $\sqrt{5}$ unidades de la recta $L_2 : -x + 2y - 3 = 0$.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item Sean el punto $A = (1,-2)$ y la recta $L : (x, y) = \lambda(3, 4)$, $\lambda \in \mathbb{R}$:
+
+\begin{itemize}
+    \item[(a)] ¿Cuál es el punto $P$ de $L$ que se encuentra a menor distancia de $A$? ¿Cuánto vale dicha distancia?
+    \item[(b)] Calcular el vector $\overrightarrow{PA}$. ¿Qué se obtiene al hacer $\overrightarrow{PA} \cdot \overrightarrow{u_L}$? ¿Por qué? (Teniendo en cuenta que es el vector director de la recta).
+    \item[(c)] Hallar, si es posible, una recta paralela a $L$ que pase por $A$ y que esté a 4 unidades de distancia de $L$.
+    \item[(d)] Hallar, si es posible, una recta paralela a $L$ que pase por $A$ y que esté a 2 unidades de distancia de $L$.
+    \item[(e)] ¿Qué conclusiones se pueden sacar después de resolver los incisos (c) y (d)?
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+\item  En cada uno de los siguientes incisos, hallar, si es posible, la ecuación de la o las rectas que satisfacen las condiciones dadas:
+
+\begin{itemize}
+    \item[(a)] Tienen pendiente $-\frac{2}{3}$ y forman con los ejes coordenados un triángulo de área 24.
+    \item[(b)] Son paralelas a la recta $L : 3x - 4y - 5 = 0$ y distan 4 unidades del punto $P = (-2, 1)$.
+    \item[(c)] Pasan por el punto $P = (3, 5)$ y forman un ángulo de $30^\circ$ con la recta $L : 3x - y - 6 = 0$.
+    \item[(d)] Contienen al punto $Q = (3,-2)$ y forman el mismo ángulo con $L_1 : \frac{x + 3}{2} = y + 2$ y $L_2 : 2x - y - 2 = 0$.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+ 
+
+
+\item 
+\begin{itemize}
+    \item[(a)] Calcular el área del triángulo cuyos vértices son $A = (1, 2)$, $B = (4, -1)$ y $C = (5, 2)$.
+    \item[(b)] Hallar los vértices de un triángulo isósceles sabiendo que la base está sobre la recta $L : x - y + 1 = 0$, un vértice es $V = (-3, 4)$ y el área del triángulo es 6.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+\item En cada inciso, encontrar la ecuación del haz de rectas determinado por las condiciones pedidas y graficar tres elementos de la familia indicando el valor del parámetro:
+
+\begin{itemize}
+\begin{multicols}{2}
+    \item[(a)] Paralelas a la recta $L : 3y - x - 3 = 0$.
+    \item[(b)] Perpendicular a la recta $L : 3x + 2y - 7 = 0$.
+    
+    \item[(c)] Pasan por el punto $P = (4, -2)$.
+    \item[(d)] Paralelas al eje $x$.
+\end{multicols}
+\end{itemize}
+
+
+
+
+
+
+
+\item Determinar la propiedad que cumplen todas las rectas que pertenecen a cada uno de los siguientes haces de rectas:
+
+\begin{itemize}
+\begin{multicols}{2}
+    \item[(a)] $-3x + 3y + k = 0$.
+    \item[(b)] $y = kx - 8$.
+
+    
+    \item[(c)] $y + 2 = k(x - 2)$.
+    \item[(d)] $\frac{x}{-2} + \frac{y}{k} = 1$, con $k \neq 0$.
+\end{multicols}
+\end{itemize}
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+\section*{Algunas aplicaciones de rectas en la industria petrolera}
+
+
+
+\begin{enumerate}[\hspace{-7mm}$1)$]
+\item  Se registra la producción de petróleo de un pozo durante 10 meses y se sabe que a los 2 meses,
+se tuvo una producción de 950 barriles por día (bbl/d) y a los 7 meses, de 700 bbl/d.
+
+\begin{itemize}
+    \item[(a)] Encontrar la ecuación de la recta que modela la situación y graficar la recta encontrada
+    (considerando que $1 \leq x \leq 10$).
+    \item[(b)] ¿Qué producción hubo a los 9 meses?
+    \item[(c)] ¿En qué mes la producción fue de 850 bbl/d?
+\end{itemize}
+
+\item Después de recolectar algunos datos, se detectó que la relación gas-petróleo (GOR-en pies
+cúbicos estándar por barril (scf/bbl)) y la producción de petróleo ($P$-en barriles por día
+(bbl/d)) está dada por la ecuación $x + 4y - 3000 = 0$ donde $x$ representa la producción e $y$
+representa la cantidad de gas-petróleo. Se sabe que la producción puede variar entre 100 y
+1000 barriles por día.
+
+\begin{itemize}
+    \item[(a)] ¿Cuál es la cantidad de gas-petróleo que hay si se producen 400 bbl/d?
+    \item[(b)] Graficar la recta considerando que $1 \leq x \leq 10$.
+\end{itemize}
+\end{enumerate}
+
+\end{document}
