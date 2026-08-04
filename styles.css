@@ -1054,3 +1054,120 @@ img, iframe { max-width: 100%; }
     max-height: 390px;
   }
 }
+
+
+/* Tarjetas seleccionables con soporte para MathJax */
+.choice-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  min-width: 0;
+  margin-top: 12px;
+}
+.choice-cards--wide { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.choice-cards--quiz { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.choice-card {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 12px;
+  background: transparent !important;
+  cursor: pointer;
+}
+.quiz-question-card .choice-card {
+  gap: 0;
+  align-items: stretch;
+}
+.choice-card input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.choice-card__content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  padding: 11px 13px 11px 43px;
+  overflow-wrap: anywhere;
+  border: 1px solid #d2deea;
+  border-radius: 12px;
+  color: var(--ink);
+  background: #fbfdff;
+  line-height: 1.35;
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.choice-card__content::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 17px;
+  height: 17px;
+  border: 2px solid #8ca4bc;
+  border-radius: 50%;
+  background: #fff;
+  transform: translateY(-50%);
+  transition: .18s ease;
+}
+.choice-card:hover .choice-card__content {
+  border-color: #8eafd0;
+  background: #f3f8fd;
+  transform: translateY(-1px);
+}
+.choice-card input:checked + .choice-card__content {
+  border-color: var(--blue);
+  color: var(--navy);
+  background: var(--blue-soft);
+  box-shadow: inset 0 0 0 1px var(--blue), 0 5px 14px rgba(31,78,140,.09);
+  font-weight: 800;
+}
+.choice-card input:checked + .choice-card__content::before {
+  border-color: var(--blue);
+  background: var(--blue);
+  box-shadow: inset 0 0 0 4px #fff;
+}
+.choice-card input:focus-visible + .choice-card__content {
+  outline: 3px solid #f0b429;
+  outline-offset: 2px;
+}
+.choice-card.correct .choice-card__content {
+  color: var(--green);
+  border-color: #78bd99;
+  background: var(--green-soft);
+  box-shadow: inset 0 0 0 1px #78bd99;
+}
+.choice-card.wrong .choice-card__content {
+  color: var(--red);
+  border-color: #df9992;
+  background: var(--red-soft);
+  box-shadow: inset 0 0 0 1px #df9992;
+}
+.choice-card.correct .choice-card__content::before {
+  border-color: var(--green);
+  background: var(--green);
+  box-shadow: inset 0 0 0 4px #fff;
+}
+.choice-card.wrong .choice-card__content::before {
+  border-color: var(--red);
+  background: var(--red);
+  box-shadow: inset 0 0 0 4px #fff;
+}
+.choice-card mjx-container {
+  max-width: 100%;
+  margin: 0 !important;
+}
+.quiz-question-card .choice-cards { margin-top: 4px; }
+
+@media (max-width: 700px) {
+  .choice-cards,
+  .choice-cards--wide,
+  .choice-cards--quiz { grid-template-columns: 1fr; }
+}

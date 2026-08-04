@@ -92,21 +92,21 @@ const steppers = {
 };
 
 const quizBank = [
-  {q:'Una recta pasa por \(P_0=(2,-1)\) y tiene director \((3,4)\). ¿Cuál es su forma vectorial?', options:['\((x,y)=(2,-1)+\lambda(3,4)\)','\((x,y)=(3,4)+\lambda(2,-1)\)','\(3x+4y=0\)','\(y=4x+3\)'], answer:0, exp:'La forma vectorial usa un punto de la recta más un múltiplo del vector director.'},
-  {q:'Si \(L:ax+by+c=0\), ¿qué vector es normal a la recta?', options:['\((a,b)\)','\((-b,a)\)','\((c,a)\)','\((1,m)\)'], answer:0, exp:'Los coeficientes de \(x\) e \(y\) forman un vector perpendicular a la recta.'},
-  {q:'¿Cuál es un director de \(2x-3y+1=0\)?', options:['\((2,-3)\)','\((3,2)\)','\((2,3)\)','\((-3,-2)\)'], answer:1, exp:'Un vector perpendicular al normal \((2,-3)\) es \((3,2)\).'},
-  {q:'Dos rectas no verticales son paralelas cuando…', options:['sus pendientes son opuestas','sus pendientes son iguales','el producto de pendientes es 1','sus ordenadas son iguales'], answer:1, exp:'La misma pendiente expresa la misma dirección; luego se revisa si coinciden o son distintas.'},
-  {q:'Dos rectas de pendientes \(2\) y \(-\tfrac12\) son…', options:['paralelas','coincidentes','perpendiculares','verticales'], answer:2, exp:'El producto de pendientes es \(-1\).'},
-  {q:'La distancia de un punto perteneciente a una recta es…', options:['1','la norma del normal','0','indefinida'], answer:2, exp:'Si el punto verifica la ecuación, el numerador de la fórmula de distancia es cero.'},
-  {q:'La mediatriz de \(AB\) pasa por…', options:['el origen','el punto medio de \(AB\)','el extremo A solamente','cualquier punto del eje x'], answer:1, exp:'Además de pasar por el punto medio, es perpendicular al segmento.'},
-  {q:'Si \(A=B\), ¿qué ocurre con la recta determinada por esos dos puntos?', options:['es vertical','es horizontal','no queda determinada de manera única','pasa por el origen'], answer:2, exp:'Dos puntos coincidentes no aportan una dirección.'},
-  {q:'Para el área con base \(AB\), la altura es…', options:['\(d(A,B)\)','\(d(C,L_{AB})\)','\(d(A,C)\)','la pendiente de \(AB\)'], answer:1, exp:'La altura es la distancia perpendicular del vértice opuesto a la recta que contiene la base.'},
-  {q:'Una recta vertical se escribe naturalmente como…', options:['\(y=mx+n\)','\(x=x_0\)','\(y=y_0\)','\(m=0\)'], answer:1, exp:'La pendiente de una vertical no existe, pero su coordenada x es constante.'},
-  {q:'El ángulo menor entre dos rectas se calcula usando…', options:['el producto escalar sin valor absoluto','el valor absoluto del producto escalar','solo las ordenadas al origen','la distancia entre rectas'], answer:1, exp:'El valor absoluto evita elegir el ángulo obtuso suplementario.'},
-  {q:'La familia \(y=kx-8\) tiene en común…', options:['la pendiente','el punto \((0,-8)\)','el vector normal','ser horizontal'], answer:1, exp:'Al poner x=0 siempre se obtiene y=-8.'},
-  {q:'La pendiente asociada al director \((4,-2)\) es…', options:['\(-2\)','\(-\tfrac12\)','\(2\)','\(\tfrac12\)'], answer:1, exp:'m=u_y/u_x=-2/4=-1/2.'},
-  {q:'Si tres puntos están alineados, el área del triángulo que forman es…', options:['positiva','negativa','cero','infinita'], answer:2, exp:'La altura respecto de cualquier base es cero.'},
-  {q:'La ecuación segmentaria \(\frac{x}{A}+\frac{y}{B}=1\) muestra directamente…', options:['el normal','los cortes con los ejes','el punto medio','el ángulo entre rectas'], answer:1, exp:'Los puntos de corte son (A,0) y (0,B).'}
+  {q:String.raw`Una recta pasa por \(P_0=(2,-1)\) y tiene director \((3,4)\). ¿Cuál es su forma vectorial?`, options:[String.raw`\((x,y)=(2,-1)+\lambda(3,4)\)`,String.raw`\((x,y)=(3,4)+\lambda(2,-1)\)`,String.raw`\(3x+4y=0\)`,String.raw`\(y=4x+3\)`], answer:0, exp:String.raw`La forma vectorial usa un punto de la recta más un múltiplo del vector director.`},
+  {q:String.raw`Si \(L:ax+by+c=0\), ¿qué vector es normal a la recta?`, options:[String.raw`\((a,b)\)`,String.raw`\((-b,a)\)`,String.raw`\((c,a)\)`,String.raw`\((1,m)\)`], answer:0, exp:String.raw`Los coeficientes de \(x\) e \(y\) forman un vector perpendicular a la recta.`},
+  {q:String.raw`¿Cuál es un director de \(2x-3y+1=0\)?`, options:[String.raw`\((2,-3)\)`,String.raw`\((3,2)\)`,String.raw`\((2,3)\)`,String.raw`\((-3,-2)\)`], answer:1, exp:String.raw`Un vector perpendicular al normal \((2,-3)\) es \((3,2)\).`},
+  {q:String.raw`Dos rectas no verticales son paralelas cuando…`, options:[String.raw`sus pendientes son opuestas`,String.raw`sus pendientes son iguales`,String.raw`el producto de pendientes es \(1\)`,String.raw`sus ordenadas son iguales`], answer:1, exp:String.raw`La misma pendiente expresa la misma dirección; luego se revisa si coinciden o son distintas.`},
+  {q:String.raw`Dos rectas de pendientes \(2\) y \(-\tfrac12\) son…`, options:[String.raw`paralelas`,String.raw`coincidentes`,String.raw`perpendiculares`,String.raw`verticales`], answer:2, exp:String.raw`El producto de pendientes es \(-1\).`},
+  {q:String.raw`La distancia de un punto perteneciente a una recta es…`, options:[String.raw`\(1\)`,String.raw`la norma del normal`,String.raw`\(0\)`,String.raw`indefinida`], answer:2, exp:String.raw`Si el punto verifica la ecuación, el numerador de la fórmula de distancia es cero.`},
+  {q:String.raw`La mediatriz de \(AB\) pasa por…`, options:[String.raw`el origen`,String.raw`el punto medio de \(AB\)`,String.raw`el extremo \(A\) solamente`,String.raw`cualquier punto del eje \(x\)`], answer:1, exp:String.raw`Además de pasar por el punto medio, es perpendicular al segmento.`},
+  {q:String.raw`Si \(A=B\), ¿qué ocurre con la recta determinada por esos dos puntos?`, options:[String.raw`es vertical`,String.raw`es horizontal`,String.raw`no queda determinada de manera única`,String.raw`pasa por el origen`], answer:2, exp:String.raw`Dos puntos coincidentes no aportan una dirección.`},
+  {q:String.raw`Para el área con base \(AB\), la altura es…`, options:[String.raw`\(d(A,B)\)`,String.raw`\(d(C,L_{AB})\)`,String.raw`\(d(A,C)\)`,String.raw`la pendiente de \(AB\)`], answer:1, exp:String.raw`La altura es la distancia perpendicular del vértice opuesto a la recta que contiene la base.`},
+  {q:String.raw`Una recta vertical se escribe naturalmente como…`, options:[String.raw`\(y=mx+n\)`,String.raw`\(x=x_0\)`,String.raw`\(y=y_0\)`,String.raw`\(m=0\)`], answer:1, exp:String.raw`La pendiente de una vertical no existe, pero su coordenada \(x\) es constante.`},
+  {q:String.raw`El ángulo menor entre dos rectas se calcula usando…`, options:[String.raw`el producto escalar sin valor absoluto`,String.raw`el valor absoluto del producto escalar`,String.raw`solo las ordenadas al origen`,String.raw`la distancia entre rectas`], answer:1, exp:String.raw`El valor absoluto evita elegir el ángulo obtuso suplementario.`},
+  {q:String.raw`La familia \(y=kx-8\) tiene en común…`, options:[String.raw`la pendiente`,String.raw`el punto \((0,-8)\)`,String.raw`el vector normal`,String.raw`ser horizontal`], answer:1, exp:String.raw`Al poner \(x=0\) siempre se obtiene \(y=-8\).`},
+  {q:String.raw`La pendiente asociada al director \((4,-2)\) es…`, options:[String.raw`\(-2\)`,String.raw`\(-\tfrac12\)`,String.raw`\(2\)`,String.raw`\(\tfrac12\)`], answer:1, exp:String.raw`\(m=u_y/u_x=-2/4=-1/2\).`},
+  {q:String.raw`Si tres puntos están alineados, el área del triángulo que forman es…`, options:[String.raw`positiva`,String.raw`negativa`,String.raw`cero`,String.raw`infinita`], answer:2, exp:String.raw`La altura respecto de cualquier base es cero.`},
+  {q:String.raw`La ecuación segmentaria \(\frac{x}{A}+\frac{y}{B}=1\) muestra directamente…`, options:[String.raw`el normal`,String.raw`los cortes con los ejes`,String.raw`el punto medio`,String.raw`el ángulo entre rectas`], answer:1, exp:String.raw`Los puntos de corte son \((A,0)\) y \((0,B)\).`}
 ];
 
 /* --------------------------------------------------------------------------
@@ -126,6 +126,40 @@ function typeset(node = document.body) {
     window.MathJax.typesetPromise([node]).catch(console.error);
   }
 }
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+function renderChoiceCards(name, options, ariaLabel, extraClass = '') {
+  return `<div class="choice-cards ${extraClass}" role="radiogroup" aria-label="${escapeHtml(ariaLabel)}">
+    ${options.map((option, index) => {
+      const value = typeof option === 'object' ? option.value : index;
+      const label = typeof option === 'object' ? option.label : option;
+      return `<label class="choice-card">
+        <input type="radio" name="${escapeHtml(name)}" value="${escapeHtml(value)}">
+        <span class="choice-card__content">${label}</span>
+      </label>`;
+    }).join('')}
+  </div>`;
+}
+function clearChoiceState(root) {
+  root.querySelectorAll('.choice-card').forEach(card => card.classList.remove('correct', 'wrong'));
+}
+function markChoiceState(root, correctValue, selectedValue, revealCorrect = false) {
+  root.querySelectorAll('.choice-card').forEach(card => {
+    const input = card.querySelector('input[type="radio"]');
+    const isCorrect = input?.value === String(correctValue);
+    const isSelected = input?.value === String(selectedValue);
+    card.classList.toggle('correct', isCorrect && (isSelected || revealCorrect));
+    card.classList.toggle('wrong', isSelected && !isCorrect);
+  });
+}
+
 function toast(message) { const el = $('toast'); el.textContent = message; el.hidden = false; clearTimeout(toast.timer); toast.timer = setTimeout(() => { el.hidden = true; }, 2300); }
 function el(name, attrs = {}, text = '') { const node = document.createElementNS(SVG_NS, name); Object.entries(attrs).forEach(([k,v]) => node.setAttribute(k, String(v))); if (text) node.textContent = text; return node; }
 function mapPoint(point, plot = PLOT) {
@@ -404,11 +438,66 @@ function initChecklist(){
 /* --------------------------------------------------------------------------
    Autoevaluación
    -------------------------------------------------------------------------- */
-function startQuiz(){
-  const selected=shuffle(quizBank).slice(0,10),form=$('quizForm');form.hidden=false;$('quizResult').hidden=true;form.innerHTML=selected.map((item,i)=>`<article class="quiz-question-card" data-answer="${item.answer}" data-exp="${item.exp.replace(/"/g,'&quot;')}"><fieldset><legend>${i+1}. ${item.q}</legend>${item.options.map((opt,j)=>`<label><input type="radio" name="q${i}" value="${j}"><span>${opt}</span></label>`).join('')}</fieldset></article>`).join('')+`<button class="button primary" type="submit">Corregir autoevaluación</button>`;form.dataset.questions=JSON.stringify(selected);typeset(form);
+let currentQuiz = [];
+function startQuiz() {
+  currentQuiz = shuffle(quizBank).slice(0, 10);
+  const form = $('quizForm');
+  form.hidden = false;
+  $('quizResult').hidden = true;
+  form.innerHTML = currentQuiz.map((item, index) => `
+    <article class="quiz-question-card" data-answer="${item.answer}">
+      <fieldset>
+        <legend>${index + 1}. ${item.q}</legend>
+        ${renderChoiceCards(
+          `q${index}`,
+          item.options.map((label, value) => ({value, label})),
+          `Opciones de la pregunta ${index + 1}`,
+          'choice-cards--quiz'
+        )}
+      </fieldset>
+    </article>`).join('') + `<button class="button primary" type="submit">Corregir autoevaluación</button>`;
+  typeset(form);
 }
-function evaluateQuiz(event){event.preventDefault();const cards=[...$('quizForm').querySelectorAll('.quiz-question-card')];let score=0;cards.forEach((card,i)=>{const chosen=card.querySelector(`input[name="q${i}"]:checked`),answer=Number(card.dataset.answer),correct=chosen&&Number(chosen.value)===answer;card.classList.toggle('correct',correct);card.classList.toggle('incorrect',!correct);if(correct)score++;let exp=card.querySelector('.quiz-explanation');if(!exp){exp=document.createElement('div');exp.className='quiz-explanation';card.append(exp);}exp.innerHTML=`<strong>${correct?'Correcto':'Revisá esta respuesta'}.</strong> ${card.dataset.exp}`;});const result=$('quizResult');result.hidden=false;result.innerHTML=`<div class="quiz-score">${score}/10</div><h3>${score>=8?'Muy buen dominio':score>=6?'Buen avance':'Conviene revisar algunos módulos'}</h3><button class="button secondary" id="newQuiz" type="button">Generar otra evaluación</button>`;$('newQuiz').addEventListener('click',startQuiz);completed.add('autoevaluacion');saveJson(STORAGE_KEY,[...completed]);updateProgress();typeset($('quizForm'));result.scrollIntoView({behavior:'smooth',block:'center'});}
-function initQuiz(){$('startQuiz').addEventListener('click',startQuiz);$('quizForm').addEventListener('submit',evaluateQuiz);}
+function evaluateQuiz(event) {
+  event.preventDefault();
+  const form = $('quizForm');
+  const cards = [...form.querySelectorAll('.quiz-question-card')];
+  let score = 0;
+
+  cards.forEach((card, index) => {
+    const item = currentQuiz[index];
+    const chosen = card.querySelector(`input[name="q${index}"]:checked`);
+    const correct = Boolean(chosen) && Number(chosen.value) === item.answer;
+    card.classList.toggle('correct', correct);
+    card.classList.toggle('incorrect', !correct);
+    clearChoiceState(card);
+    markChoiceState(card, item.answer, chosen?.value ?? '', true);
+    if (correct) score++;
+
+    let explanation = card.querySelector('.quiz-explanation');
+    if (!explanation) {
+      explanation = document.createElement('div');
+      explanation.className = 'quiz-explanation';
+      card.append(explanation);
+    }
+    const status = correct ? 'Correcto' : chosen ? 'Revisá esta respuesta' : 'Sin responder';
+    explanation.innerHTML = `<strong>${status}.</strong> ${item.exp}`;
+  });
+
+  const result = $('quizResult');
+  result.hidden = false;
+  result.innerHTML = `<div class="quiz-score">${score}/10</div><h3>${score >= 8 ? 'Muy buen dominio' : score >= 6 ? 'Buen avance' : 'Conviene revisar algunos módulos'}</h3><button class="button secondary" id="newQuiz" type="button">Generar otra evaluación</button>`;
+  $('newQuiz').addEventListener('click', startQuiz);
+  completed.add('autoevaluacion');
+  saveJson(STORAGE_KEY, [...completed]);
+  updateProgress();
+  typeset(form);
+  result.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+function initQuiz() {
+  $('startQuiz').addEventListener('click', startQuiz);
+  $('quizForm').addEventListener('submit', evaluateQuiz);
+}
 
 /* --------------------------------------------------------------------------
    Inicio
